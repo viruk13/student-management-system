@@ -98,7 +98,7 @@ tr:nth-child(even){ background:#f9f9f9; }
 form div { margin-bottom:12px; }
 form label { display:block; margin-bottom:5px; font-weight:600; }
 
-/* Make inputs and selects consistent */
+/* Inputs and selects (uniform style) */
 input, select { 
     width: 100%; 
     padding: 8px; 
@@ -107,23 +107,37 @@ input, select {
     font-family: inherit; 
     font-size: 14px; 
     box-sizing: border-box;
+    background-color: white;
+    color: #333;
+}
+
+/* Remove default browser styling for select */
+select {
+    -webkit-appearance: none; /* Chrome, Safari */
+    -moz-appearance: none; /* Firefox */
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpolygon points='0,0 10,0 5,5' fill='%23666'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+
+/* Focus/hover style (same for input and select) */
+input:focus, select:focus {
+    border-color: #007BFF;
+    outline: none;
 }
 
 /* Invalid field style */
-input.invalid, select.invalid { border-color: #f44336; }
+input.invalid, select.invalid {
+    border-color: #f44336;
+}
 
 /* Error text */
 .error { 
     color:#f44336; 
     font-size:12px; 
     margin-top:2px; 
-}
-
-/* Optional: make select arrow look neat */
-select {
-    appearance: none;
-    background: white url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpolygon points='0,0 10,0 5,5' fill='%23666'/%3E%3C/svg%3E") no-repeat right 10px center;
-    background-size: 10px;
 }
 
 /* Pagination */
