@@ -39,7 +39,7 @@ function closeForm(){
 }
 function clearErrors(){ 
     document.querySelectorAll(".error").forEach(e=>e.textContent=""); 
-    document.querySelectorAll("input").forEach(e=>e.classList.remove("invalid")); 
+    document.querySelectorAll("input, select").forEach(e=>e.classList.remove("invalid")); 
 }
 
 // Event listeners
@@ -60,7 +60,11 @@ function renderTable(){
 
     // Search
     const query = searchInput.value.toLowerCase();
-    if(query) data = data.filter(s=> s.name.toLowerCase().includes(query) || s.department.toLowerCase().includes(query) || s.semester.toLowerCase().includes(query));
+    if(query) data = data.filter(s=> 
+        s.name.toLowerCase().includes(query) || 
+        s.department.toLowerCase().includes(query) || 
+        s.semester.toLowerCase().includes(query)
+    );
 
     // Sort
     if(sortKey) data.sort((a,b)=>{
@@ -115,8 +119,8 @@ form.addEventListener("submit", async e=>{
 
     const student={
         name:nameInput.value.trim(),
-        semester:semesterInput.value.trim(),
-        department:departmentInput.value.trim(),
+        semester:semesterInput.value,
+        department:departmentInput.value,
         father:fatherInput.value.trim(),
         fatherMobile:fatherMobileInput.value.trim(),
         mother:motherInput.value.trim(),
