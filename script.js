@@ -62,28 +62,24 @@ function renderTable(){
     const start = (currentPage-1)*rowsPerPage;
     const pageData = data.slice(start, start+rowsPerPage);
 
-pageData.forEach(s => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-        <td>${s.name}</td>
-        <td>${s.semester}</td>
-        <td>${s.department}</td>
-        <td>${s.father}</td>
-        <td>${s.fatherMobile}</td>
-        <td>${s.mother}</td>
-        <td>${s.motherMobile}</td>
-        <td>${s.address}</td>
-        <td>
-            <button class="editBtn">Edit</button>
-            <button class="deleteBtn">Delete</button>
-        </td>
-    `;
-    // Attach event listeners **after creating the row**
-    tr.querySelector(".editBtn").addEventListener("click", () => startEdit(s.id));
-    tr.querySelector(".deleteBtn").addEventListener("click", () => removeStudent(s.id));
-    table.appendChild(tr);
-});
-;
+    table.innerHTML="";
+    pageData.forEach(s=>{
+        const tr=document.createElement("tr");
+        tr.innerHTML=`
+            <td>${s.name}</td>
+            <td>${s.semester}</td>
+            <td>${s.department}</td>
+            <td>${s.father}</td>
+            <td>${s.fatherMobile}</td>
+            <td>${s.mother}</td>
+            <td>${s.motherMobile}</td>
+            <td>${s.address}</td>
+            <td><button class="editBtn">Edit</button> <button class="deleteBtn">Delete</button></td>
+        `;
+        tr.querySelector(".editBtn").addEventListener("click",()=>startEdit(s.id));
+        tr.querySelector(".deleteBtn").addEventListener("click",()=>removeStudent(s.id));
+        table.appendChild(tr);
+    });
 
     renderPagination(totalPages);
 }
