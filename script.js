@@ -26,9 +26,21 @@ const addBtn = document.getElementById("addBtn");
 const closeBtn = document.getElementById("closeBtn");
 
 // Modal functions
-function openForm(){ modal.classList.add("show"); formTitle.textContent = editId?"Edit Student":"Add Student"; clearErrors();}
-function closeForm(){ modal.classList.remove("show"); form.reset(); editId=null; clearErrors();}
-function clearErrors(){ document.querySelectorAll(".error").forEach(e=>e.textContent=""); document.querySelectorAll("input").forEach(e=>e.classList.remove("invalid"));}
+function openForm(){ 
+    modal.classList.add("show"); 
+    formTitle.textContent = editId?"Edit Student":"Add Student"; 
+    clearErrors();
+}
+function closeForm(){ 
+    modal.classList.remove("show"); 
+    form.reset(); 
+    editId=null; 
+    clearErrors();
+}
+function clearErrors(){ 
+    document.querySelectorAll(".error").forEach(e=>e.textContent=""); 
+    document.querySelectorAll("input").forEach(e=>e.classList.remove("invalid")); 
+}
 
 // Event listeners
 addBtn.addEventListener("click", openForm);
