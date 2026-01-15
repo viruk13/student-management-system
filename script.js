@@ -84,7 +84,7 @@ function renderTable(){
     renderPagination(totalPages);
 }
 
-// Render pagination buttons
+// Pagination buttons
 function renderPagination(total){
     pagination.innerHTML="";
     for(let i=1;i<=total;i++){
@@ -129,7 +129,7 @@ form.addEventListener("submit", async e=>{
     await loadStudents();
 });
 
-// Start edit
+// Edit student
 async function startEdit(id){
     const res=await fetch(`${API}/${id}`);
     const s=await res.json();
