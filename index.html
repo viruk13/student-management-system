@@ -3,72 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Management App</title>
+<title>Student Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Student Management App</h1>
-<button id="addBtn">Add Student</button>
+<h1>Student Management Dashboard</h1>
+
+<div class="top-bar">
+    <button id="addBtn">Add Student</button>
+    <input type="text" id="searchInput" placeholder="Search by name, department...">
+</div>
 
 <table>
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Semester</th>
-            <th>Department</th>
-            <th>Father</th>
-            <th>Father Mobile</th>
-            <th>Mother</th>
-            <th>Mother Mobile</th>
-            <th>Address</th>
+            <th data-key="name">Name</th>
+            <th data-key="semester">Semester</th>
+            <th data-key="department">Department</th>
+            <th data-key="father">Father</th>
+            <th data-key="fatherMobile">Father Mobile</th>
+            <th data-key="mother">Mother</th>
+            <th data-key="motherMobile">Mother Mobile</th>
+            <th data-key="address">Address</th>
             <th>Actions</th>
         </tr>
     </thead>
     <tbody id="table"></tbody>
 </table>
 
+<div class="pagination" id="pagination"></div>
+
 <!-- Modal -->
 <div id="modal" class="modal">
     <div class="modal-content">
         <h2 id="formTitle">Add Student</h2>
         <form id="form">
-            <div>
-                <label>Name:</label>
-                <input type="text" id="name">
-                <div class="error" id="nameError"></div>
-            </div>
-            <div>
-                <label>Semester:</label>
-                <input type="text" id="semester">
-                <div class="error" id="semesterError"></div>
-            </div>
-            <div>
-                <label>Department:</label>
-                <input type="text" id="department">
-                <div class="error" id="departmentError"></div>
-            </div>
-            <div>
-                <label>Father:</label>
-                <input type="text" id="father">
-            </div>
-            <div>
-                <label>Father Mobile:</label>
-                <input type="text" id="fatherMobile">
-            </div>
-            <div>
-                <label>Mother:</label>
-                <input type="text" id="mother">
-            </div>
-            <div>
-                <label>Mother Mobile:</label>
-                <input type="text" id="motherMobile">
-            </div>
-            <div>
-                <label>Address:</label>
-                <input type="text" id="address">
-                <div class="error" id="addressError"></div>
-            </div>
+            <div><label>Name:</label><input type="text" id="name"><div class="error" id="nameError"></div></div>
+            <div><label>Semester:</label><input type="text" id="semester"><div class="error" id="semesterError"></div></div>
+            <div><label>Department:</label><input type="text" id="department"><div class="error" id="departmentError"></div></div>
+            <div><label>Father:</label><input type="text" id="father"></div>
+            <div><label>Father Mobile:</label><input type="text" id="fatherMobile"></div>
+            <div><label>Mother:</label><input type="text" id="mother"></div>
+            <div><label>Mother Mobile:</label><input type="text" id="motherMobile"></div>
+            <div><label>Address:</label><input type="text" id="address"><div class="error" id="addressError"></div></div>
             <div style="text-align:right;">
                 <button type="submit">Save</button>
                 <button type="button" id="closeBtn">Cancel</button>
